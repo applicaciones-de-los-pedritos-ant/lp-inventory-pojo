@@ -119,6 +119,8 @@ public class UnitInventory implements Serializable, GEntity {
     //added:2021-07-21
     @Column(name = "cWthExprt")
     private String cWthExprt;
+    
+
 
     LinkedList laColumns = null;
     

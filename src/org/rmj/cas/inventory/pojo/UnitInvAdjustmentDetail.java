@@ -57,6 +57,10 @@ public class UnitInvAdjustmentDetail implements Serializable, GEntity {
     @Column(name = "dModified")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dModified;
+    
+    @Column(name = "sBrandNme")
+    private String sBrandNme;
+        
 
     LinkedList laColumns = null;
     
@@ -69,6 +73,7 @@ public class UnitInvAdjustmentDetail implements Serializable, GEntity {
         this.nInvCostx = 0.00;
         this.dExpiryDt = java.util.Calendar.getInstance().getTime();
         this.sRemarksx = "";
+        this.sBrandNme = "";
         
         laColumns = new LinkedList();
         laColumns.add("sTransNox");
@@ -80,6 +85,7 @@ public class UnitInvAdjustmentDetail implements Serializable, GEntity {
         laColumns.add("dExpiryDt");
         laColumns.add("sRemarksx");
         laColumns.add("dModified");
+        laColumns.add("sBrandNme");
     }
     
     public UnitInvAdjustmentDetail(){
@@ -149,6 +155,13 @@ public class UnitInvAdjustmentDetail implements Serializable, GEntity {
         return dModified;
     }
     
+    public void setBrandNme(String sBrandNme){
+        this.sBrandNme = sBrandNme;
+    }
+    public String getBrandNme(){
+        return sBrandNme;
+    }
+    
     @Override
     public int hashCode(){
         int hash = 0;
@@ -184,6 +197,7 @@ public class UnitInvAdjustmentDetail implements Serializable, GEntity {
             case 7: return dExpiryDt;
             case 8: return sRemarksx;
             case 9: return dModified;
+            case 10: return sBrandNme;
             default: return null;
         }
     }
@@ -228,6 +242,7 @@ public class UnitInvAdjustmentDetail implements Serializable, GEntity {
             case 7: dExpiryDt = (Date) foValue; break;
             case 8: sRemarksx = (String) foValue; break;
             case 9: dModified = (Date) foValue; break;
+            case 10: sBrandNme = (String) foValue; break;
         }    
     }
 
