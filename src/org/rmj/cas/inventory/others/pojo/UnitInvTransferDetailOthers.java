@@ -69,6 +69,9 @@ public class UnitInvTransferDetailOthers implements Serializable, GEntity {
     @Column(name = "sMeasurNm")
     private String sMeasurNm;
     
+    @Column(name = "sBrandNme")
+    private String sBrandNme;
+    
     LinkedList laColumns = null;
     
     private void initRecord(){
@@ -89,6 +92,7 @@ public class UnitInvTransferDetailOthers implements Serializable, GEntity {
         this.xQuantity = 0; //equivalent qty of this item to the parent
         this.sInvTypNm = "";
         this.sMeasurNm = "";
+        this.sBrandNme = "";
         
         laColumns = new LinkedList();
         laColumns.add("sStockIDx");
@@ -108,6 +112,7 @@ public class UnitInvTransferDetailOthers implements Serializable, GEntity {
         laColumns.add("xQuantity");
         laColumns.add("sInvTypNm");
         laColumns.add("sMeasurNm");
+        laColumns.add("sBrandNme");
     }
     
     public UnitInvTransferDetailOthers(){
@@ -155,6 +160,7 @@ public class UnitInvTransferDetailOthers implements Serializable, GEntity {
             case 15: return xQuantity;
             case 16: return sInvTypNm;
             case 17: return sMeasurNm;
+            case 18: return sBrandNme;
             default: return null;           
         }
     }
@@ -207,6 +213,7 @@ public class UnitInvTransferDetailOthers implements Serializable, GEntity {
             case 15: xQuantity = (Number) foValue; break;
             case 16: sInvTypNm = (String) foValue; break;
             case 17: sMeasurNm = (String) foValue; break;
+            case 18: sBrandNme = (String) foValue; break;
         }    
     }
 

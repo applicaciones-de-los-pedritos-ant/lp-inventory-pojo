@@ -32,6 +32,10 @@ public class UnitDailyProductionInvOthers implements Serializable, GEntity {
     
     @Column(name = "nQtyOnHnd")
     private Number nQtyOnHnd;
+    
+    
+    @Column(name = "sBrandNme")
+    private String sBrandNme;
 
     LinkedList laColumns = null;
     
@@ -41,6 +45,7 @@ public class UnitDailyProductionInvOthers implements Serializable, GEntity {
         this.sDescript = "";
         this.sMeasurNm = "";
         this.nQtyOnHnd = 0;
+        this.sBrandNme = "";
         
         laColumns = new LinkedList();
         laColumns.add("sStockIDx");
@@ -48,6 +53,7 @@ public class UnitDailyProductionInvOthers implements Serializable, GEntity {
         laColumns.add("sDescript");
         laColumns.add("sMeasurNm");
         laColumns.add("nQtyOnHnd");
+        laColumns.add("sBrandNme");
     }
     
     public UnitDailyProductionInvOthers(){
@@ -83,6 +89,7 @@ public class UnitDailyProductionInvOthers implements Serializable, GEntity {
             case 3: return sDescript;
             case 4: return sMeasurNm;
             case 5: return nQtyOnHnd;
+            case 6: return sBrandNme;
             default: return null;           
         }
     }
@@ -122,7 +129,8 @@ public class UnitDailyProductionInvOthers implements Serializable, GEntity {
             case 2: sBarCodex = (String) foValue; break; 
             case 3: sDescript = (String) foValue; break; 
             case 4: sMeasurNm = (String) foValue; break; 
-            case 5: nQtyOnHnd = (Number) foValue; break; 
+            case 5: nQtyOnHnd = (Number) foValue; break;
+            case 6: sBrandNme = (String) foValue; break; 
         }    
     }
 

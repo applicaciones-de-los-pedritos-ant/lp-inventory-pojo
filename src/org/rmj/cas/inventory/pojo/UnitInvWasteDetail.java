@@ -56,6 +56,9 @@ public class UnitInvWasteDetail implements Serializable, GEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dModified;
 
+    @Column(name = "sBrandNme")
+    private String sBrandNme;
+    
     LinkedList laColumns = null;
     
     private void initRecord(){
@@ -66,6 +69,7 @@ public class UnitInvWasteDetail implements Serializable, GEntity {
         this.nInvCostx = 0.00;
         this.dExpiryDt = java.util.Calendar.getInstance().getTime();
         this.sNotesxxx = "";
+        this.sBrandNme = "";
         
         laColumns = new LinkedList();
         laColumns.add("sTransNox");
@@ -76,6 +80,7 @@ public class UnitInvWasteDetail implements Serializable, GEntity {
         laColumns.add("dExpiryDt");
         laColumns.add("sNotesxxx");
         laColumns.add("dModified");
+        laColumns.add("sBrandNme");
     }
     
     public UnitInvWasteDetail(){
@@ -172,6 +177,7 @@ public class UnitInvWasteDetail implements Serializable, GEntity {
             case 6: return dExpiryDt;
             case 7: return sNotesxxx;
             case 8: return dModified;
+            case 9: return sBrandNme;
             default: return null;
         }
     }
@@ -215,6 +221,7 @@ public class UnitInvWasteDetail implements Serializable, GEntity {
             case 6: dExpiryDt = (Date) foValue; break;
             case 7: sNotesxxx = (String) foValue; break;
             case 8: dModified = (Date) foValue; break;
+            case 9: sBrandNme = (String) foValue; break;
         }    
     }
 
