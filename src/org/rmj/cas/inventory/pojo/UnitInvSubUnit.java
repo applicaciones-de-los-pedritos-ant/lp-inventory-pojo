@@ -51,7 +51,7 @@ public class UnitInvSubUnit implements Serializable, GEntity {
         this.sStockIDx = "";
         this.nEntryNox = -1;
         this.sItmSubID = "";
-        this.nQuantity = 0;
+        this.nQuantity = 0.0;
         
         laColumns = new LinkedList();
         laColumns.add("sStockIDx");
