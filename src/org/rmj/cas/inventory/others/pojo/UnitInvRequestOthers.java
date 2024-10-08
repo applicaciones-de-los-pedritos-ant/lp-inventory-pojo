@@ -10,71 +10,82 @@ import org.rmj.appdriver.iface.GEntity;
 
 /**
  * Inv_Request_Detail other info table POJO
+ *
  * @author Michael Torres Cuison
  * @since 2018.10.22
  */
 public class UnitInvRequestOthers implements Serializable, GEntity {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @Basic(optional = false)
     @Column(name = "sStockIDx")
     private String sStockIDx;
-    
+
     @Column(name = "nQtyOnHnd")
     private Number nQtyOnHnd;
-    
+
     @Column(name = "xQtyOnHnd")
     private Number xQtyOnHnd;
-    
+
     @Column(name = "nResvOrdr")
     private Number nResvOrdr;
-    
+
     @Column(name = "nBackOrdr")
     private Number nBackOrdr;
-    
+
     @Column(name = "nReorderx")
     private Number nReorderx;
-    
+
     @Column(name = "nLedgerNo")
     private int nLedgerNo;
-    
+
     @Column(name = "sBarCodex")
     private String sBarCodex;
-    
+
     @Column(name = "sDescript")
     private String sDescript;
-    
+
     @Column(name = "sOrigCode")
     private String sOrigCode;
-    
+
     @Column(name = "sOrigDesc")
     private String sOrigDesc;
-    
+
     @Column(name = "sOrderNox")
     private String sOrderNox;
-    
+
     @Column(name = "sParentID")
     private String sParentID;
-    
+
     @Column(name = "xParntQty")
     private Number xParntQty;
-    
+
     @Column(name = "xQuantity")
     private Number xQuantity;
+
+    @Column(name = "nApproved")
+    private Number nApproved;
+
+    @Column(name = "nIssueQty")
+    private Number nIssueQty;
     
+    @Column(name = "nOrderQty")
+    private Number nOrderQty;
+
     @Column(name = "sInvTypNm")
     private String sInvTypNm;
-    
+
     @Column(name = "sMeasurNm")
     private String sMeasurNm;
-    
+
     @Column(name = "sBrandNme")
     private String sBrandNme;
-    
+
     LinkedList laColumns = null;
-    
-    private void initRecord(){
+
+    private void initRecord() {
         this.sStockIDx = "";
         this.nQtyOnHnd = 0;
         this.xQtyOnHnd = 0;
@@ -90,10 +101,13 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
         this.sParentID = ""; //parent unit stock id
         this.xParntQty = 0; //parent quanity used
         this.xQuantity = 0; //equivalent qty of this item to the parent
+        this.nApproved = 0;
+        this.nIssueQty = 0;
+        this.nOrderQty = 0;
         this.sInvTypNm = "";
         this.sMeasurNm = "";
         this.sBrandNme = "";
-        
+
         laColumns = new LinkedList();
         laColumns.add("sStockIDx");
         laColumns.add("nQtyOnHnd");
@@ -114,19 +128,22 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
         laColumns.add("sInvTypNm");
         laColumns.add("sMeasurNm");
         laColumns.add("sBrandNme");
+        laColumns.add("nApproved");
+        laColumns.add("nIssueQty");
+        laColumns.add("nOrderQty");
     }
-    
-    public UnitInvRequestOthers(){
+
+    public UnitInvRequestOthers() {
         initRecord();
     }
-    
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int hash = 0;
         hash += (sStockIDx != null ? sStockIDx.hashCode() : 0);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof UnitInvRequestOthers)) {
@@ -135,46 +152,73 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
         UnitInvRequestOthers other = (UnitInvRequestOthers) object;
         return !((this.sStockIDx == null && other.sStockIDx != null) || (this.sStockIDx != null && !this.sStockIDx.equals(other.sStockIDx)));
     }
-    
+
     @Override
     public String toString() {
         return "org.rmj.inventory.others.pojo.UnitInvTransferDetailOthers[sStockIDx=" + sStockIDx + "]";
     }
-    
+
     @Override
     public Object getValue(int fnColumn) {
-        switch(fnColumn){
-            case 1: return sStockIDx;
-            case 2: return nQtyOnHnd;
-            case 3: return xQtyOnHnd;
-            case 4: return nResvOrdr;
-            case 5: return nBackOrdr;
-            case 6: return nReorderx;
-            case 7: return nLedgerNo;
-            case 8: return sBarCodex;
-            case 9: return sDescript;
-            case 10: return sOrigCode;
-            case 11: return sOrigDesc;
-            case 12: return sOrderNox;
-            case 13: return sParentID;
-            case 14: return xParntQty;
-            case 15: return xQuantity;
-            case 16: return xQuantity;
-            case 17: return sInvTypNm;
-            case 18: return sMeasurNm;
-            case 19: return sBrandNme;
-            default: return null;           
+        switch (fnColumn) {
+            case 1:
+                return sStockIDx;
+            case 2:
+                return nQtyOnHnd;
+            case 3:
+                return xQtyOnHnd;
+            case 4:
+                return nResvOrdr;
+            case 5:
+                return nBackOrdr;
+            case 6:
+                return nReorderx;
+            case 7:
+                return nLedgerNo;
+            case 8:
+                return sBarCodex;
+            case 9:
+                return sDescript;
+            case 10:
+                return sOrigCode;
+            case 11:
+                return sOrigDesc;
+            case 12:
+                return sOrderNox;
+            case 13:
+                return sParentID;
+            case 14:
+                return xParntQty;
+            case 15:
+                return xQuantity;
+            case 16:
+                return xQuantity;
+            case 17:
+                return sInvTypNm;
+            case 18:
+                return sMeasurNm;
+            case 19:
+                return sBrandNme;
+            case 20:
+                return nApproved;
+            case 21:
+                return nIssueQty;
+            case 22:
+                return nOrderQty;
+            default:
+                return null;
         }
     }
 
     @Override
     public Object getValue(String fsColumn) {
         int lnCol = getColumn(fsColumn);
-        
-        if (lnCol > 0){
+
+        if (lnCol > 0) {
             return getValue(lnCol);
-        } else
+        } else {
             return null;
+        }
     }
 
     @Override
@@ -184,10 +228,11 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
 
     @Override
     public String getColumn(int fnCol) {
-        if (laColumns.size() < fnCol){
+        if (laColumns.size() < fnCol) {
             return "";
-        } else 
+        } else {
             return (String) laColumns.get(fnCol - 1);
+        }
     }
 
     @Override
@@ -197,33 +242,81 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
 
     @Override
     public void setValue(int fnColumn, Object foValue) {
-        switch(fnColumn){
-            case 1: sStockIDx = (String)foValue; break; 
-            case 2: nQtyOnHnd = (Number) foValue; break; 
-            case 3: xQtyOnHnd = (Number) foValue; break; 
-            case 4: nResvOrdr = (Number) foValue; break; 
-            case 5: nBackOrdr = (Number) foValue; break; 
-            case 6: nReorderx = (Number) foValue; break; 
-            case 7: nLedgerNo = (int) foValue; break; 
-            case 8: sBarCodex = (String) foValue; break; 
-            case 9: sDescript = (String) foValue; break; 
-            case 10: sOrigCode = (String) foValue; break;
-            case 11: sOrigDesc = (String) foValue; break;
-            case 12: sOrderNox = (String) foValue; break;
-            case 13: sParentID = (String) foValue; break;
-            case 14: xParntQty = (int) foValue; break;
-            case 15: xQuantity = (int) foValue; break;
-            case 16: xQuantity = (int) foValue; break;
-            case 17: sInvTypNm = (String) foValue; break;
-            case 18: sMeasurNm = (String) foValue; break;
-            case 19: sBrandNme = (String) foValue; break;
-        }    
+        switch (fnColumn) {
+            case 1:
+                sStockIDx = (String) foValue;
+                break;
+            case 2:
+                nQtyOnHnd = (Number) foValue;
+                break;
+            case 3:
+                xQtyOnHnd = (Number) foValue;
+                break;
+            case 4:
+                nResvOrdr = (Number) foValue;
+                break;
+            case 5:
+                nBackOrdr = (Number) foValue;
+                break;
+            case 6:
+                nReorderx = (Number) foValue;
+                break;
+            case 7:
+                nLedgerNo = (int) foValue;
+                break;
+            case 8:
+                sBarCodex = (String) foValue;
+                break;
+            case 9:
+                sDescript = (String) foValue;
+                break;
+            case 10:
+                sOrigCode = (String) foValue;
+                break;
+            case 11:
+                sOrigDesc = (String) foValue;
+                break;
+            case 12:
+                sOrderNox = (String) foValue;
+                break;
+            case 13:
+                sParentID = (String) foValue;
+                break;
+            case 14:
+                xParntQty = (int) foValue;
+                break;
+            case 15:
+                xQuantity = (int) foValue;
+                break;
+            case 16:
+                xQuantity = (int) foValue;
+                break;
+            case 17:
+                sInvTypNm = (String) foValue;
+                break;
+            case 18:
+                sMeasurNm = (String) foValue;
+                break;
+            case 19:
+                sBrandNme = (String) foValue;
+                break;
+
+            case 20:
+                nApproved = (Number) foValue;
+                break;
+            case 21:
+                nIssueQty = (Number) foValue;
+                break;
+            case 22:
+                nOrderQty = (Number) foValue;
+                break;
+        }
     }
 
     @Override
     public void setValue(String fsColumn, Object foValue) {
         int lnCol = getColumn(fsColumn);
-        if (lnCol > 0){
+        if (lnCol > 0) {
             setValue(lnCol, foValue);
         }
     }
@@ -232,8 +325,8 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
     public int getColumnCount() {
         return laColumns.size();
     }
-    
-    public void list(){
-        Stream.of(laColumns).forEach(System.out::println);        
+
+    public void list() {
+        Stream.of(laColumns).forEach(System.out::println);
     }
 }

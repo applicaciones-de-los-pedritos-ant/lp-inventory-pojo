@@ -76,11 +76,11 @@ public class UnitInvTransferDetailOthers implements Serializable, GEntity {
     
     private void initRecord(){
         this.sStockIDx = "";
-        this.nQtyOnHnd = 0;
-        this.xQtyOnHnd = 0;
-        this.nResvOrdr = 0;
-        this.nBackOrdr = 0;
-        this.nReorderx = 0;
+        this.nQtyOnHnd = 0.0;
+        this.xQtyOnHnd = 0.0;
+        this.nResvOrdr = 0.0;
+        this.nBackOrdr = 0.0;
+        this.nReorderx = 0.0;
         this.nLedgerNo = 0;
         this.sBarCodex = "";
         this.sDescript = "";
@@ -89,7 +89,7 @@ public class UnitInvTransferDetailOthers implements Serializable, GEntity {
         this.sOrderNox = ""; //order transaction number
         this.sParentID = ""; //parent unit stock id
         this.xParntQty = 0; //parent quanity used
-        this.xQuantity = 0; //equivalent qty of this item to the parent
+        this.xQuantity = 0.0; //equivalent qty of this item to the parent
         this.sInvTypNm = "";
         this.sMeasurNm = "";
         this.sBrandNme = "";
