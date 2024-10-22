@@ -13,77 +13,81 @@ import javax.persistence.TemporalType;
 import org.rmj.appdriver.iface.GEntity;
 
 @Entity
-@Table(name="UnitInvRequestDetail")
+@Table(name = "UnitInvRequestDetail")
 
 public class UnitInvRequestDetail implements Serializable, GEntity {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "sTransNox")
     private String sTransNox;
-        
+
     @Column(name = "nEntryNox")
     private int nEntryNox;
-    
+
     @Column(name = "sStockIDx")
     private String sStockIDx;
-    
+
     @Column(name = "nQuantity")
     private Number nQuantity;
-    
+
     @Column(name = "cClassify")
     private String cClassify;
-    
+
     @Column(name = "nRecOrder")
     private Number nRecOrder;
-    
+
     @Column(name = "nQtyOnHnd")
     private Number nQtyOnHnd;
-    
+
     @Column(name = "nResvOrdr")
     private Number nResvOrdr;
-    
+
     @Column(name = "nBackOrdr")
     private Number nBackOrdr;
-    
+
     @Column(name = "nOnTranst")
     private Number nOnTranst;
-    
+
     @Column(name = "nAvgMonSl")
     private Number nAvgMonSl;
-    
+
     @Column(name = "nMaxLevel")
     private Number nMaxLevel;
-    
+
     @Column(name = "nApproved")
     private Number nApproved;
-    
+
     @Column(name = "nCancelld")
     private Number nCancelld;
-    
+
     @Column(name = "nIssueQty")
     private Number nIssueQty;
-    
+
     @Column(name = "nOrderQty")
     private Number nOrderQty;
-    
+
     @Column(name = "nAllocQty")
     private Number nAllocQty;
-    
+
     @Column(name = "nReceived")
     private Number nReceived;
-    
+
     @Column(name = "sNotesxxx")
     private String sNotesxxx;
-    
+
+    @Column(name = "sBatchNox")
+    private String sBatchNox;
+
     @Basic(optional = false)
     @Column(name = "dModified")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dModified;
-          
+
     LinkedList laColumns = null;
-    
-    public UnitInvRequestDetail(){
+
+    public UnitInvRequestDetail() {
         this.sTransNox = "";
         this.nEntryNox = -1;
         this.sStockIDx = "";
@@ -103,8 +107,9 @@ public class UnitInvRequestDetail implements Serializable, GEntity {
         this.nAllocQty = 0.00;
         this.nReceived = 0.00;
         this.sNotesxxx = "";
+        this.sBatchNox = "";
         this.dModified = null;
-        
+
         laColumns = new LinkedList();
         laColumns.add("sTransNox");
         laColumns.add("nEntryNox");
@@ -125,156 +130,185 @@ public class UnitInvRequestDetail implements Serializable, GEntity {
         laColumns.add("nAllocQty");
         laColumns.add("nReceived");
         laColumns.add("sNotesxxx");
+        laColumns.add("sBatchNox");
         laColumns.add("dModified");
     }
-    
-    public void setTransNox(String sTransNox){
+
+    public void setTransNox(String sTransNox) {
         this.sTransNox = sTransNox;
     }
-    public String getTransNox(){
+
+    public String getTransNox() {
         return sTransNox;
     }
-       
-    public void setEntryNox(int nEntryNox){
+
+    public void setEntryNox(int nEntryNox) {
         this.nEntryNox = nEntryNox;
     }
-    public int getEntryNox(){
+
+    public int getEntryNox() {
         return nEntryNox;
     }
-    
-    public void setStockID(String sStockIDx){
+
+    public void setStockID(String sStockIDx) {
         this.sStockIDx = sStockIDx;
     }
-    public String getStockID(){
+
+    public String getStockID() {
         return sStockIDx;
     }
-     
-    public void setQuantity(Number nQuantity){
+
+    public void setQuantity(Number nQuantity) {
         this.nQuantity = nQuantity;
     }
-    public Number getQuantity(){
+
+    public Number getQuantity() {
         return nQuantity;
     }
-    
-    public void setClassify(String cClassify){
+
+    public void setClassify(String cClassify) {
         this.cClassify = cClassify;
     }
-    public String getClassify(){
+
+    public String getClassify() {
         return cClassify;
     }
-    
-    public void setRecOrder(Number nRecOrder){
+
+    public void setRecOrder(Number nRecOrder) {
         this.nRecOrder = nRecOrder;
     }
-    public Number setRecOrder(){
+
+    public Number setRecOrder() {
         return nRecOrder;
     }
-    
-    public void setQtyOnHnd(Number nQtyOnHnd){
+
+    public void setQtyOnHnd(Number nQtyOnHnd) {
         this.nQtyOnHnd = nQtyOnHnd;
     }
-    public Number setQtyOnHnd(){
+
+    public Number setQtyOnHnd() {
         return nQtyOnHnd;
     }
-    
-    public void setResvOrdr(Number nResvOrdr){
+
+    public void setResvOrdr(Number nResvOrdr) {
         this.nResvOrdr = nResvOrdr;
     }
-    public Number setResvOrdr(){
+
+    public Number setResvOrdr() {
         return nResvOrdr;
     }
-    
-    public void setBackOrdr(Number nBackOrdr){
+
+    public void setBackOrdr(Number nBackOrdr) {
         this.nBackOrdr = nBackOrdr;
     }
-    public Number setBackOrdr(){
+
+    public Number setBackOrdr() {
         return nResvOrdr;
     }
-    
-    public void setOnTranst(Number nOnTranst){
+
+    public void setOnTranst(Number nOnTranst) {
         this.nOnTranst = nOnTranst;
     }
-    public Number setOnTranst(){
+
+    public Number setOnTranst() {
         return nOnTranst;
     }
-    
-    public void setAvgMonSl(Number nAvgMonSl){
+
+    public void setAvgMonSl(Number nAvgMonSl) {
         this.nAvgMonSl = nAvgMonSl;
     }
-    public Number setAvgMonSl(){
+
+    public Number setAvgMonSl() {
         return nAvgMonSl;
     }
-    
-    public void setMaxLevel(Number nMaxLevell){
+
+    public void setMaxLevel(Number nMaxLevell) {
         this.nMaxLevel = nMaxLevel;
     }
-    public Number setMaxLevel(){
+
+    public Number setMaxLevel() {
         return nMaxLevel;
     }
-    
-    public void setApproved(Number nApproved){
+
+    public void setApproved(Number nApproved) {
         this.nApproved = nApproved;
     }
-    public Number setApproved(){
+
+    public Number setApproved() {
         return nApproved;
     }
-    
-    public void setCancelld(int nCancelld){
+
+    public void setCancelld(int nCancelld) {
         this.nCancelld = nCancelld;
     }
-    public Number setCancelld(){
+
+    public Number setCancelld() {
         return nCancelld;
     }
-    
-    public void setIssueQty(Number nIssueQty){
+
+    public void setIssueQty(Number nIssueQty) {
         this.nIssueQty = nIssueQty;
     }
-    public Number setIssueQty(){
+
+    public Number setIssueQty() {
         return nIssueQty;
     }
-    
-    public void setOrderQty(Number nOrderQty){
+
+    public void setOrderQty(Number nOrderQty) {
         this.nOrderQty = nOrderQty;
     }
-    public Number setOrderQty(){
+
+    public Number setOrderQty() {
         return nOrderQty;
     }
-    
-    public void setAllocQty(Number nAllocQty){
+
+    public void setAllocQty(Number nAllocQty) {
         this.nAllocQty = nAllocQty;
     }
-    public Number setAllocQty(){
+
+    public Number setAllocQty() {
         return nAllocQty;
     }
-    
-    public void setReceived(Number nReceived){
+
+    public void setReceived(Number nReceived) {
         this.nReceived = nReceived;
     }
-    public Number setReceived(){
+
+    public Number setReceived() {
         return nReceived;
     }
-    
-    public void setNotesxxx(String sNotesxxx){
+
+    public void setNotesxxx(String sNotesxxx) {
         this.sNotesxxx = sNotesxxx;
     }
-    public String getNotesxxx(){
+
+    public String getNotesxxx() {
         return sNotesxxx;
-    } 
-                
-    public void setDateModified(Date dModified){
+    }
+
+    public void setBatchNox(String sBatchNox) {
+        this.sBatchNox = sBatchNox;
+    }
+
+    public String getBatchNox() {
+        return sBatchNox;
+    }
+
+    public void setDateModified(Date dModified) {
         this.dModified = dModified;
     }
-    public Date getDateModified(){
+
+    public Date getDateModified() {
         return dModified;
     }
-    
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int hash = 0;
         hash += (sTransNox != null ? sTransNox.hashCode() : 0);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -287,47 +321,71 @@ public class UnitInvRequestDetail implements Serializable, GEntity {
         }
         return true;
     }
-    
+
     @Override
     public String toString() {
         return "org.rmj.cas.inventory.pojo.UnitInvRequestDetail[sTransNox=" + sTransNox + "]";
     }
-    
+
     @Override
     public Object getValue(int fnColumn) {
-        switch(fnColumn){
-            case 1: return sTransNox;
-            case 2: return nEntryNox;
-            case 3: return sStockIDx;
-            case 4: return nQuantity;
-            case 5: return cClassify;
-            case 6: return nRecOrder;
-            case 7: return nQtyOnHnd;
-            case 8: return nResvOrdr;
-            case 9: return nBackOrdr;
-            case 10: return nOnTranst;
-            case 11: return nAvgMonSl;
-            case 12: return nMaxLevel;
-            case 13: return nApproved;
-            case 14: return nCancelld;
-            case 15: return nIssueQty;
-            case 16: return nOrderQty;
-            case 17: return nAllocQty;
-            case 18: return nReceived;
-            case 19: return sNotesxxx;
-            case 20: return dModified;
-            default: return null;
+        switch (fnColumn) {
+            case 1:
+                return sTransNox;
+            case 2:
+                return nEntryNox;
+            case 3:
+                return sStockIDx;
+            case 4:
+                return nQuantity;
+            case 5:
+                return cClassify;
+            case 6:
+                return nRecOrder;
+            case 7:
+                return nQtyOnHnd;
+            case 8:
+                return nResvOrdr;
+            case 9:
+                return nBackOrdr;
+            case 10:
+                return nOnTranst;
+            case 11:
+                return nAvgMonSl;
+            case 12:
+                return nMaxLevel;
+            case 13:
+                return nApproved;
+            case 14:
+                return nCancelld;
+            case 15:
+                return nIssueQty;
+            case 16:
+                return nOrderQty;
+            case 17:
+                return nAllocQty;
+            case 18:
+                return nReceived;
+            case 19:
+                return sNotesxxx;
+            case 20:
+                return sBatchNox;
+            case 21:
+                return dModified;
+            default:
+                return null;
         }
     }
 
     @Override
     public Object getValue(String fsColumn) {
         int lnCol = getColumn(fsColumn);
-        
-        if (lnCol > 0){
+
+        if (lnCol > 0) {
             return getValue(lnCol);
-        } else
+        } else {
             return null;
+        }
     }
 
     @Override
@@ -337,10 +395,11 @@ public class UnitInvRequestDetail implements Serializable, GEntity {
 
     @Override
     public String getColumn(int fnCol) {
-        if (laColumns.size() < fnCol){
+        if (laColumns.size() < fnCol) {
             return "";
-        } else 
+        } else {
             return (String) laColumns.get(fnCol - 1);
+        }
     }
 
     @Override
@@ -350,34 +409,77 @@ public class UnitInvRequestDetail implements Serializable, GEntity {
 
     @Override
     public void setValue(int fnColumn, Object foValue) {
-        switch(fnColumn){
-            case 1: sTransNox = (String) foValue; break;
-            case 2: nEntryNox = (int) foValue; break;
-            case 3: sStockIDx = (String) foValue; break;
-            case 4: nQuantity = (Number) foValue; break;
-            case 5: cClassify = (String) foValue; break;
-            case 6: nRecOrder = (Number) foValue; break;
-            case 7: nQtyOnHnd = (Number) foValue; break;
-            case 8: nResvOrdr = (Number) foValue; break;
-            case 9: nBackOrdr = (Number) foValue; break;
-            case 10: nOnTranst = (Number) foValue; break;
-            case 11: nAvgMonSl = (Number) foValue; break;
-            case 12: nMaxLevel = (Number) foValue; break;
-            case 13: nApproved = (Number) foValue; break;
-            case 14: nCancelld = (Number) foValue; break;
-            case 15: nIssueQty = (Number) foValue; break;
-            case 16: nOrderQty = (Number) foValue; break;
-            case 17: nAllocQty = (Number) foValue; break;
-            case 18: nReceived = (Number) foValue; break;
-            case 19: sNotesxxx = (String) foValue; break;
-            case 20: dModified = (Date) foValue; break;
-        }    
+        switch (fnColumn) {
+            case 1:
+                sTransNox = (String) foValue;
+                break;
+            case 2:
+                nEntryNox = (int) foValue;
+                break;
+            case 3:
+                sStockIDx = (String) foValue;
+                break;
+            case 4:
+                nQuantity = (Number) foValue;
+                break;
+            case 5:
+                cClassify = (String) foValue;
+                break;
+            case 6:
+                nRecOrder = (Number) foValue;
+                break;
+            case 7:
+                nQtyOnHnd = (Number) foValue;
+                break;
+            case 8:
+                nResvOrdr = (Number) foValue;
+                break;
+            case 9:
+                nBackOrdr = (Number) foValue;
+                break;
+            case 10:
+                nOnTranst = (Number) foValue;
+                break;
+            case 11:
+                nAvgMonSl = (Number) foValue;
+                break;
+            case 12:
+                nMaxLevel = (Number) foValue;
+                break;
+            case 13:
+                nApproved = (Number) foValue;
+                break;
+            case 14:
+                nCancelld = (Number) foValue;
+                break;
+            case 15:
+                nIssueQty = (Number) foValue;
+                break;
+            case 16:
+                nOrderQty = (Number) foValue;
+                break;
+            case 17:
+                nAllocQty = (Number) foValue;
+                break;
+            case 18:
+                nReceived = (Number) foValue;
+                break;
+            case 19:
+                sNotesxxx = (String) foValue;
+                break;
+            case 20:
+                sBatchNox = (String) foValue;
+                break;
+            case 21:
+                dModified = (Date) foValue;
+                break;
+        }
     }
 
     @Override
     public void setValue(String fsColumn, Object foValue) {
         int lnCol = getColumn(fsColumn);
-        if (lnCol > 0){
+        if (lnCol > 0) {
             setValue(lnCol, foValue);
         }
     }

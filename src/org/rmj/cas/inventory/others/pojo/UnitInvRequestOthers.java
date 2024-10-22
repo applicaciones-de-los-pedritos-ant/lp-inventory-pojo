@@ -82,6 +82,9 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
 
     @Column(name = "sBrandNme")
     private String sBrandNme;
+    
+    @Column(name = "sInvTypCd")
+    private String sInvTypCd;
 
     LinkedList laColumns = null;
 
@@ -107,6 +110,7 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
         this.sInvTypNm = "";
         this.sMeasurNm = "";
         this.sBrandNme = "";
+        this.sInvTypCd = "";
 
         laColumns = new LinkedList();
         laColumns.add("sStockIDx");
@@ -131,6 +135,7 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
         laColumns.add("nApproved");
         laColumns.add("nIssueQty");
         laColumns.add("nOrderQty");
+        laColumns.add("sInvTypCd");
     }
 
     public UnitInvRequestOthers() {
@@ -205,6 +210,8 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
                 return nIssueQty;
             case 22:
                 return nOrderQty;
+            case 23:
+                return sInvTypCd;
             default:
                 return null;
         }
@@ -309,6 +316,9 @@ public class UnitInvRequestOthers implements Serializable, GEntity {
                 break;
             case 22:
                 nOrderQty = (Number) foValue;
+                break;
+            case 23:
+                sInvTypCd = (String) foValue;
                 break;
         }
     }
