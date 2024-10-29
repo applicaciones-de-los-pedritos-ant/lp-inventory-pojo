@@ -15,118 +15,153 @@ import org.rmj.appdriver.constants.TransactionStatus;
 import org.rmj.appdriver.iface.GEntity;
 
 @Entity
-@Table(name="Daily_Production_Master")
+@Table(name = "Daily_Production_Master")
 
 /**
  * Daily_Production_Master table POJO
+ *
  * @author Michael Torres Cuison
  * @since 2018.10.09
  */
 public class UnitDailyProductionMaster implements Serializable, GEntity {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @Basic(optional = false)
     @Column(name = "sTransNox")
     private String sTransNox;
-    
+
     @Basic(optional = false)
     @Column(name = "dTransact")
     @Temporal(TemporalType.DATE)
     private Date dTransact;
-            
+
     @Column(name = "sRemarksx")
-    private String sRemarksx;       
-    
+    private String sRemarksx;
+
     @Column(name = "nEntryNox")
     private int nEntryNox;
-    
+
+    @Column(name = "sSourceCd")
+    private String sSourceCd;
+
+    @Column(name = "sSourceNo")
+    private String sSourceNo;
+
     @Column(name = "cTranStat")
     private String cTranStat;
-    
+
     @Column(name = "sModified")
     private String sModified;
-    
+
     @Basic(optional = false)
     @Column(name = "dModified")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dModified;
 
     LinkedList laColumns = null;
-    
-    public UnitDailyProductionMaster(){
+
+    public UnitDailyProductionMaster() {
         this.sTransNox = "";
         this.dTransact = null;
         this.sRemarksx = "";
         this.nEntryNox = -1;
+        this.sSourceCd = "";
+        this.sSourceNo = "";
         this.cTranStat = TransactionStatus.STATE_OPEN;
-        
+
         laColumns = new LinkedList();
         laColumns.add("sTransNox");
         laColumns.add("dTransact");
         laColumns.add("sRemarksx");
         laColumns.add("nEntryNox");
+        laColumns.add("sSourceCd");
+        laColumns.add("sSourceNo");
         laColumns.add("cTranStat");
         laColumns.add("sModified");
         laColumns.add("dModified");
     }
-    
-    public void setTransNox(String sTransNox){
+
+    public void setTransNox(String sTransNox) {
         this.sTransNox = sTransNox;
     }
-    public String getTransNox(){
+
+    public String getTransNox() {
         return sTransNox;
     }
-    
-    public void setDateTransact(Date dTransact){
+
+    public void setDateTransact(Date dTransact) {
         this.dTransact = dTransact;
     }
-    public Date getDateTransact(){
+
+    public Date getDateTransact() {
         return dTransact;
     }
-    
-    public void setRemarksx(String sRemarksx){
+
+    public void setRemarksx(String sRemarksx) {
         this.sRemarksx = sRemarksx;
     }
-    public String setRemarksx(){
+
+    public String getRemarksx() {
         return sRemarksx;
     }
-        
-    public void setEntryNox(int nEntryNox){
+
+    public void setEntryNox(int nEntryNox) {
         this.nEntryNox = nEntryNox;
     }
-    public int getEntryNox(){
+
+    public int getEntryNox() {
         return nEntryNox;
     }
-        
-    public void setTranStat(String cTranStat){
+
+    public void setSourceCd(String sSourceCd) {
+        this.sSourceCd = sSourceCd;
+    }
+
+    public String getSourceCd() {
+        return sSourceCd;
+    }
+
+    public void setSourceNo(String sSourceNo) {
+        this.sSourceNo = sSourceNo;
+    }
+
+    public String getSourceNo() {
+        return sSourceNo;
+    }
+
+    public void setTranStat(String cTranStat) {
         this.cTranStat = cTranStat;
     }
-    public String getTranStat(){
+
+    public String getTranStat() {
         return cTranStat;
     }
-    
-    public void setModified(String sModified){
+
+    public void setModified(String sModified) {
         this.sModified = sModified;
     }
-    public String getModified(){
+
+    public String getModified() {
         return sModified;
     }
-    
-    public void setDateModified(Date dModified){
+
+    public void setDateModified(Date dModified) {
         this.dModified = dModified;
     }
-    public Date getDateModified(){
+
+    public Date getDateModified() {
         return dModified;
     }
-    
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int hash = 0;
         hash += (sTransNox != null ? sTransNox.hashCode() : 0);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -136,34 +171,47 @@ public class UnitDailyProductionMaster implements Serializable, GEntity {
         UnitDailyProductionMaster other = (UnitDailyProductionMaster) object;
         return !((this.sTransNox == null && other.sTransNox != null) || (this.sTransNox != null && !this.sTransNox.equals(other.sTransNox)));
     }
-    
+
     @Override
     public String toString() {
         return "org.rmj.inventory.production..pojo.UnitDailyProductionMaster[sTransNox=" + sTransNox + "]";
     }
-    
+
     @Override
     public Object getValue(int fnColumn) {
-        switch(fnColumn){
-            case 1: return sTransNox;
-            case 2: return dTransact;
-            case 3: return sRemarksx;
-            case 4: return nEntryNox;            
-            case 5: return cTranStat;
-            case 6: return sModified;
-            case 7: return dModified;
-            default: return null;
+        switch (fnColumn) {
+            case 1:
+                return sTransNox;
+            case 2:
+                return dTransact;
+            case 3:
+                return sRemarksx;
+            case 4:
+                return nEntryNox;
+            case 5:
+                return sSourceCd;
+            case 6:
+                return sSourceNo;
+            case 7:
+                return cTranStat;
+            case 8:
+                return sModified;
+            case 9:
+                return dModified;
+            default:
+                return null;
         }
     }
 
     @Override
     public Object getValue(String fsColumn) {
         int lnCol = getColumn(fsColumn);
-        
-        if (lnCol > 0){
+
+        if (lnCol > 0) {
             return getValue(lnCol);
-        } else
+        } else {
             return null;
+        }
     }
 
     @Override
@@ -173,10 +221,11 @@ public class UnitDailyProductionMaster implements Serializable, GEntity {
 
     @Override
     public String getColumn(int fnCol) {
-        if (laColumns.size() < fnCol){
+        if (laColumns.size() < fnCol) {
             return "";
-        } else 
+        } else {
             return (String) laColumns.get(fnCol - 1);
+        }
     }
 
     @Override
@@ -186,21 +235,41 @@ public class UnitDailyProductionMaster implements Serializable, GEntity {
 
     @Override
     public void setValue(int fnColumn, Object foValue) {
-        switch(fnColumn){
-            case 1: sTransNox = (String) foValue; break;
-            case 2: dTransact = (Date) foValue; break;
-            case 3: sRemarksx = (String) foValue; break;
-            case 4: nEntryNox = (int) foValue; break;
-            case 5: cTranStat = (String) foValue; break;
-            case 6: sModified = (String) foValue; break;
-            case 7: dModified = (Date) foValue; break;
-        }    
+        switch (fnColumn) {
+            case 1:
+                sTransNox = (String) foValue;
+                break;
+            case 2:
+                dTransact = (Date) foValue;
+                break;
+            case 3:
+                sRemarksx = (String) foValue;
+                break;
+            case 4:
+                nEntryNox = (int) foValue;
+                break;
+            case 5:
+                sSourceCd = (String) foValue;
+                break;
+            case 6:
+                sSourceNo = (String) foValue;
+                break;
+            case 7:
+                cTranStat = (String) foValue;
+                break;
+            case 8:
+                sModified = (String) foValue;
+                break;
+            case 9:
+                dModified = (Date) foValue;
+                break;
+        }
     }
 
     @Override
     public void setValue(String fsColumn, Object foValue) {
         int lnCol = getColumn(fsColumn);
-        if (lnCol > 0){
+        if (lnCol > 0) {
             setValue(lnCol, foValue);
         }
     }
@@ -209,8 +278,8 @@ public class UnitDailyProductionMaster implements Serializable, GEntity {
     public int getColumnCount() {
         return laColumns.size();
     }
-    
-    public void list(){
-        Stream.of(laColumns).forEach(System.out::println);        
+
+    public void list() {
+        Stream.of(laColumns).forEach(System.out::println);
     }
 }
