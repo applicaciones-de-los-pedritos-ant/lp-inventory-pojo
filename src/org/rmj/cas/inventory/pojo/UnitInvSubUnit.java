@@ -44,6 +44,13 @@ public class UnitInvSubUnit implements Serializable, GEntity {
     @Column(name = "dModified")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dModified;
+    
+    @Column(name = "sBarCodex")
+    private String sBarCodex;
+    
+    
+    @Column(name = "sDescript")
+    private String sDescript;
 
     LinkedList laColumns = null;
     
@@ -52,6 +59,8 @@ public class UnitInvSubUnit implements Serializable, GEntity {
         this.nEntryNox = -1;
         this.sItmSubID = "";
         this.nQuantity = 0.0;
+        this.sBarCodex = "";
+        this.sDescript = "";
         
         laColumns = new LinkedList();
         laColumns.add("sStockIDx");
@@ -59,6 +68,8 @@ public class UnitInvSubUnit implements Serializable, GEntity {
         laColumns.add("sItmSubID");
         laColumns.add("nQuantity");
         laColumns.add("dModified");
+        laColumns.add("sBarCodex");
+        laColumns.add("sDescript");
     }
         
     public void setStockIDx(String sStockIDx){
@@ -95,6 +106,19 @@ public class UnitInvSubUnit implements Serializable, GEntity {
     public Date getDateModified(){
         return dModified;
     }
+    public void setBarcode(String sBarCodex){
+        this.sBarCodex = sBarCodex;
+    }
+    public String getBarcode(){
+        return sBarCodex;
+    }  
+    public void setDescription(String sDescript){
+        this.sDescript = sDescript;
+    }
+    public String getDescription(){
+        return sDescript;
+    }  
+    
     
     @Override
     public int hashCode(){
@@ -127,6 +151,8 @@ public class UnitInvSubUnit implements Serializable, GEntity {
             case 3: return sItmSubID;
             case 4: return nQuantity;
             case 5: return dModified;
+            case 6: return sBarCodex;
+            case 7: return sDescript;
             default: return null;
         }
     }
@@ -167,6 +193,8 @@ public class UnitInvSubUnit implements Serializable, GEntity {
             case 3: sItmSubID = (String) foValue; break;
             case 4: nQuantity = (Number) foValue; break;
             case 5: dModified = (Date) foValue; break;
+            case 6: sBarCodex = (String) foValue; break;
+            case 7: sDescript = (String) foValue; break;
         }    
     }
 

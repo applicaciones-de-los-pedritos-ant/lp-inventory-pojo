@@ -59,8 +59,8 @@ public class UnitDailyProductionInv implements Serializable, GEntity {
         this.sTransNox = "";
         this.nEntryNox = -1;
         this.sStockIDx = "";
-        this.nQtyReqrd = 0;
-        this.nQtyUsedx = 0;
+        this.nQtyReqrd = 0.0;
+        this.nQtyUsedx = 0.0;
         this.dExpiryDt = java.util.Calendar.getInstance().getTime();
         
         laColumns = new LinkedList();
